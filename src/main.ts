@@ -17,7 +17,7 @@ async function run(): Promise<void> {
     const solutionPath: string = path.join(cwd, core.getInput('solutionPath'))
     const outputPath = path.join(cwd, 'result.xml')
 
-    let command = `jb inspectcode -o=${outputPath} -a ${solutionPath}`
+    let command = `jb inspectcode -o=${outputPath} -a ${solutionPath} --build`
     let defaultProfilePath = `${solutionPath}.DotSettings`
     
     const minimumReportSeverity = core.getInput('minimumReportSeverity') ?? ''
@@ -27,9 +27,9 @@ async function run(): Promise<void> {
 
     const profilePath = core.getInput('profilePath') ?? ''
     if (profilePath !== '') {
-      command += ` --profile=${solutionPath}.DotSettings`
+      command += ` --profile=${profilePath}`
     }
-    else if(fs.existsSync(defaultProfilePath))    {
+    else if(fs.existsSync(defaultProfilePath))    {      
       command += ` --profile=${defaultProfilePath}`
     }
 
@@ -38,6 +38,7 @@ async function run(): Promise<void> {
       command += ` --exclude=${exclude}`
     }
 
+    console.log(`Excecuting command as: ${command}`)
     await exec.exec(command)
 
     const ignoreIssueType = core.getInput('ignoreIssueType') ?? ''
