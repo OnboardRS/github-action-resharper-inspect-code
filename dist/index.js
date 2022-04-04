@@ -6964,7 +6964,7 @@ function run() {
             const cwd = process.cwd();
             const solutionPath = path_1.default.join(cwd, core.getInput('solutionPath'));
             const outputPath = path_1.default.join(cwd, 'result.xml');
-            let command = `jb inspectcode -o=${outputPath} -a ${solutionPath}`;
+            let command = `jb inspectcode -o=${outputPath} -a ${solutionPath} --build`;
             let defaultProfilePath = `${solutionPath}.DotSettings`;
             const minimumReportSeverity = (_a = core.getInput('minimumReportSeverity')) !== null && _a !== void 0 ? _a : '';
             if (minimumReportSeverity !== '') {
@@ -6972,7 +6972,7 @@ function run() {
             }
             const profilePath = (_b = core.getInput('profilePath')) !== null && _b !== void 0 ? _b : '';
             if (profilePath !== '') {
-                command += ` --profile=${solutionPath}.DotSettings`;
+                command += ` --profile=${profilePath}`;
             }
             else if (fs_1.default.existsSync(defaultProfilePath)) {
                 command += ` --profile=${defaultProfilePath}`;
@@ -6981,6 +6981,7 @@ function run() {
             if (exclude !== '') {
                 command += ` --exclude=${exclude}`;
             }
+            console.log(`Excecuting command as: ${command}`);
             yield exec.exec(command);
             const ignoreIssueType = (_d = core.getInput('ignoreIssueType')) !== null && _d !== void 0 ? _d : '';
             const report = new report_1.Report(outputPath, ignoreIssueType);
