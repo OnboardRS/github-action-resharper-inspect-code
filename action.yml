@@ -8,7 +8,6 @@ inputs:
     required: false
     description: 'The DotSettings profile to run against the profiler. If empty tries to use solution DotSettings. 
       If that doesn't exist, uses the default.'
-    default: ''
   failOnIssue:
     required: false
     default: '1'
