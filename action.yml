@@ -1,0 +1,35 @@
+name: 'ReSharper CLI InspectCode'
+description: 'Inspect code with ReSharper Command Line Tool and annotate PR'
+inputs:
+  solutionPath:
+    required: true
+    description: 'The solution file.'
+  profilePath:
+    required: false
+    description: 'The DotSettings profile to run against the profiler. If empty tries to use solution DotSettings. If that doesn't exist, uses the default.'
+    default: ''
+  failOnIssue:
+    required: false
+    default: '1'
+    description: 'Action fail when issue exists.'
+  resharperCliVersion:
+    required: false
+    description: 'The version of the CLI to install.'
+    default: '2021.1.5'
+  minimumFailSeverity:
+    required: false
+    description: 'Sets the level that will cause an action failure. (Lower severity issues are annotated only.)'
+    default: 'NOTICE'
+  minimumReportSeverity:
+    required: false
+    description: 'Sets the level that will be included in the report.'
+    default: 'NOTICE'
+  exclude:
+    required: false
+    description: Set this options to specified exclude path to ReSharper CLI.
+  ignoreIssueType:
+    required: false
+    description: Comma-separated list of ignore issue type.
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
