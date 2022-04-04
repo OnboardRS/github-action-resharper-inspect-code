@@ -16,7 +16,7 @@ inputs:
   resharperCliVersion:
     required: false
     description: 'The version of the CLI to install.'
-    default: '2021.1.5'
+    default: '2021.3.4'
   minimumFailSeverity:
     required: false
     description: 'Sets the level that will cause an action failure. (Lower severity issues are annotated only.)'
