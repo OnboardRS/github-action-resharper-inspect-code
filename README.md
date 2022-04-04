@@ -75,8 +75,12 @@ jobs:
           dotnet-version: '6.0.x' # or 3.1.x, 5.0.x
       - name: Restore
         run: dotnet restore
-      - name: Inspect code
-        uses: OnboardRS/resharper_inspectcode@1.0.0
+      - name: ReSharper CLI InspectCode
+        uses: OnboardRS/github-action-resharper-inspect-code@1.0.0
         with:
           solutionPath: ./YourSolution.sln
+          minimumFailSeverity: warning
+          failOnIssue: 1
+          minimumReportSeverity: warning
+          
 ```
