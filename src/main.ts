@@ -17,7 +17,7 @@ async function run(): Promise<void> {
     const solutionPath: string = path.join(cwd, core.getInput('solutionPath'))
     const outputPath = path.join(cwd, 'result.xml')
 
-    let command = `jb inspectcode -o=${outputPath} -a ${solutionPath} --build`
+    let command = `jb inspectcode -o=${outputPath} -a ${solutionPath} --build --properties:Configuration=Release`
     let defaultProfilePath = `${solutionPath}.DotSettings`
     
     const minimumReportSeverity = core.getInput('minimumReportSeverity') ?? ''
