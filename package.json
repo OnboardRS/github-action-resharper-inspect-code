@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/OnboardRS/github-action-resharper-cli#readme",
   "dependencies": {
-    "@actions/core": "^1.6.0",
+    "@actions/core": "^1.9.1",
     "@actions/exec": "^1.1.1",
     "@actions/github": "^5.0.1",
     "htmlparser2": "^7.2.0"
