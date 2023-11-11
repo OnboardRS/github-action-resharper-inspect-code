@@ -38,7 +38,7 @@ async function run(): Promise<void> {
       command += ` --exclude=${exclude}`
     }
 
-    command += ' --properties:Configuration=Release'
+    command += ` --properties:Configuration=Release`
 
     console.log(`Excecuting command as: ${command}`)
     await exec.exec(command)
