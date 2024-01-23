@@ -54,7 +54,7 @@ References:
 
 ### resharperCliVersion
 
-Default is '2021.1.5'.
+Default is '2023.3.2'.
 
 Set this option to change the version of the ReSharper CLI that's installed.
 ## Usage
@@ -68,11 +68,11 @@ jobs:
     name: Inspection
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x' # or 3.1.x, 5.0.x
+          dotnet-version: '8.0.x' # or 3.1.x, 5.0.x
       - name: Restore
         run: dotnet restore
       - name: ReSharper CLI InspectCode

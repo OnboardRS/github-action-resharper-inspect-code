@@ -6981,6 +6981,8 @@ function run() {
             if (exclude !== '') {
                 command += ` --exclude=${exclude}`;
             }
+            command += ` --properties:Configuration=Release`;
+            yield exec.exec(`npm login --scope=@onboardrs/onboard-component-library --auth-type=legacy --registry=https://npm.pkg.github.com`);
             console.log(`Excecuting command as: ${command}`);
             yield exec.exec(command);
             const ignoreIssueType = (_d = core.getInput('ignoreIssueType')) !== null && _d !== void 0 ? _d : '';

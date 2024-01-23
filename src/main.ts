@@ -38,6 +38,10 @@ async function run(): Promise<void> {
       command += ` --exclude=${exclude}`
     }
 
+    command += ` --properties:Configuration=Release`
+
+    await exec.exec(`npm login --scope=@onboardrs/onboard-component-library --auth-type=legacy --registry=https://npm.pkg.github.com`)
+    
     console.log(`Excecuting command as: ${command}`)
     await exec.exec(command)
 
