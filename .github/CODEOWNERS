@@ -1,0 +1,13 @@
+# Syntax notes:
+# - https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#codeowners-syntax
+# - The syntax matches most of the same rules as .gitignore files
+# - Each line is a case-sensitive file pattern followed by one or more owners with Write access to the repo e.g.
+#   * @OnboardRS/black       # Team with default ownership over everything (teams are preferred over individuals)
+#   * @onboard-service-dev   # User with default ownership over everything
+# - Order is important; the last matching pattern takes the most precedence
+
+# The following teams will be the default code owners for everything in the repo. Unless a later match takes
+# precedence, the following owners will automatically be requested for review when a PR is opened. Draft PRs do
+# not automatically request reviews until they are marked as Ready for Review. If the repo's Branch Protection
+# Rules require a review from a code owner, at least one owner must sign off before a PR can be merged.
+* @OnboardRS/black @OnboardRS/gold @OnboardRS/green @OnboardRS/purple @OnboardRS/red
